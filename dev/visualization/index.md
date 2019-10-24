@@ -1,2 +1,2 @@
-- [Data visualization Core](./dev/visualization/data.md)
-- [Analytic visualization Core](./dev/visualization/analytic.md)
+- [Data visualization Core](./data.md)
+- [Analytic visualization Core](./analytic.md)

@@ -1,3 +1,3 @@
-- [Analytic Core](./dev/analytic/analytic.md)
-- [Preprocess Core](./dev/analytic/correlation.md)
-- [Correlation Core](./dev/analytic/preprocess.md)
+- [Analytic Core](./analytic.md)
+- [Preprocess Core](./correlation.md)
+- [Correlation Core](./preprocess.md)
