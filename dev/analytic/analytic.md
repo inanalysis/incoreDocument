@@ -42,15 +42,18 @@ title: Analytic Core
     - **name**: "參數名稱"
     - **description**: "此參數的描述"
     - **type**: `Enum("int","float","bool","enum","string")`
+
         |int|float|bool|enum|string|
         |:-:|:-:|:-:|:-:|:-:|
         |此參數為 int|此參數為 float| 此參數為 bool<br>0 代表 False,1 代表 True|此參數為選項|此參數為string|
     - **default**: 此參數的預設值
         Example:
+
         |int|float|bool|enum|string|
         |:-:|:-:|:-:|:-:|:-:|
         |10|23.5|1|"option1"|"some string"|
     - **other attribute**
+    
         |屬性|意義|required by|example|
         |:-:|:-:|:-:|:-:|
         |upperBound|參數的上界|int, float|20|
@@ -227,19 +230,19 @@ numpy.array(
 |7|8|9|
 |10|11|12|
 
-將 a, b, c 三個 column 皆讀入一個名為 input1 的輸入組，則 `self.inputData['intput1']` 將為
+將 a, b, c 三個 column 以 [b c a] 的順序讀入一個名為 input1 的輸入組，則 `self.inputData['intput1']` 將為
 
 ```python
 numpy.array(
     [
-        [1,2,3],
-        [4,5,6],
-        [7,8,9],
-        [10,11,12]
+        [2,3,1],
+        [5,6,2],
+        [8,9,7],
+        [11,12,10]
     ]
 )
 ```
-
+<br>
 若該輸入組型態為 *classifiable*，則系統會自動將其轉換為 one-hot encoding 型式，並將對應關係存為 `self.c2d` 及 `self.d2c`
 
 例如，一個如下的 csv
@@ -251,7 +254,7 @@ numpy.array(
 |dog|orange|black|
 |cat|banana|green|
 
-將 a, b, c 三個 column 皆讀入一個名為 input2 的輸入組，系統會隨機為每個column產生類別對應如下面型式
+將 a, b, c 三個 column 以 [c,a,b] 順序讀入一個名為 input2 的輸入組，系統會隨機為每個column產生類別對應如下面型式
 
 ```python
 self.c2d = {
@@ -296,10 +299,10 @@ self.d2c = {
 ```python
 numpy.array(
     [
-        [ [1,0], [1,0,0], [1,0,0,0] ],
-        [ [0,1], [0,1,0], [0,1,0,0] ],
-        [ [0,1], [0,0,1], [0,0,1,0] ],
-        [ [1,0], [0,1,0], [0,0,0,1] ]
+        [ [1,0,0,0], [1,0], [1,0,0] ],
+        [ [0,1,0,0], [0,1], [0,1,0] ],
+        [ [0,0,1,0], [0,1], [0,0,1] ],
+        [ [0,0,0,1], [1,0], [0,1,0] ]
     ]
 )
 ```
