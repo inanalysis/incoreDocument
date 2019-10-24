@@ -5,9 +5,9 @@ title: Visualizarion Service
 
 # Visualize Service
 <div class="alert alert-dark" role="alert">
-    <a href="../index.md">Document</a>
+    <a href="../../index.html">Document</a>
      > 
-    <a href="./index.md">Dev</a>
+    <a href="../index.html">Dev</a>
      > 
     Visualize Service
 </div>

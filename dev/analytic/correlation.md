@@ -5,11 +5,11 @@ title: Correlation Core
 
 # Correlation Core
 <div class="alert alert-dark" role="alert">
-    <a href="../../index.md">Document</a>
+    <a href="../../index.html">Document</a>
      > 
-    <a href="../index.md">Dev</a>
+    <a href="../index.html">Dev</a>
      > 
-    <a href="./index.md">Ananlytic Service</a>
+    <a href="./index.html">Ananlytic Service</a>
      > 
     Correlation Core
 </div>

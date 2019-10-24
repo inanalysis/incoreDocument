@@ -5,7 +5,7 @@ title: Dev
 
 # Dev Document
 <div class="alert alert-dark" role="alert">
-    <a href="../index.md">Document</a>
+    <a href="../index.html">Document</a>
      > 
     Dev
 </div>
