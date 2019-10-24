@@ -1,8 +1,14 @@
-- Analytic Service
-  - [Analytic Core](./analytic/analytic_core.md)
-  - Preprocess Core
-  - Correlation Core
-- Visualization Service
-  - Data visualization Core
-  - Analytic visualization Core
-- Data Collection Service
+This is a DevOps document of InCore, a data analytics platform based on SOA and RESTful API.
+The platform was born in ICAN Lab, ESOE, NTU.
+Click links below to navigate to each chaper.
+
+- Dev
+    - [Analytic Service](./dev/analytic/)
+        - [Analytic Core](./dev/analytic/analytic.md)
+        - [Preprocess Core](./dev/analytic/correlation.md)
+        - [Correlation Core](./dev/analytic/preprocess.md)
+    - [Visualization Service](./dev/visualization/)
+        - [Data visualization Core](./dev/visualization/data.md)
+        - [Analytic visualization Core](./dev/visualization/analytic.md)
+    - Data Collection Service
+- [Ops](./ops/ops.md)
