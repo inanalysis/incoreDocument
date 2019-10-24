@@ -1,3 +1,8 @@
+---
+layout: default
+title: Dev
+---
+
 <style type="text/css">
 .apiok{
 color:#04B486
@@ -19,7 +24,16 @@ color:#BDBDBD
 }
 </style>
 
-===
+
+# Ops Document
+<div class="alert alert-dark" role="alert">
+    <a href="./">Document</a>
+     > 
+    Ops
+</div>
+
+---
+
 ## About Document
 <font class='apiok'>Tested API</font>
 <font class='apitesting'>Untest API</font>

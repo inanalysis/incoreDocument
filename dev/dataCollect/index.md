@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Visualizarion Service
+title: Data Collection Service
 ---
 
 # Data Visualize Core
@@ -9,10 +9,7 @@ title: Visualizarion Service
      > 
     <a href="./">Dev</a>
      > 
-    Visualize Service
+    Data Collection Service
 </div>
 
 ---
-
-- [Data Visualization Core](./data.md)
-- [Analytic Model Visualization Core](./analytic.md)

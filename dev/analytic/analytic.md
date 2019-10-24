@@ -3,19 +3,18 @@ layout: default
 title: Analytic Core
 ---
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
 # Analytic Core
-
 <div class="alert alert-dark" role="alert">
-    <a href="../../../">Document</a>
+    <a href="../../">Document</a>
      > 
-    <a href="../../">Dev</a>
+    <a href="../">Dev</a>
      > 
-    <a href="../">Ananlytic Service</a>
+    <a href="./">Ananlytic Service</a>
      > 
     Analytic Core
 </div>
+
+---
 
 
 ## Implement algorithm
