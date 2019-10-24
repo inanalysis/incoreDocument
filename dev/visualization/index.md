@@ -3,7 +3,7 @@ layout: default
 title: Visualizarion Service
 ---
 
-# Data Visualize Core
+# Visualize Service
 <div class="alert alert-dark" role="alert">
     <a href="../">Document</a>
      > 

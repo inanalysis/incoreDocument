@@ -18,10 +18,10 @@ Click links below to navigate to each chaper.
 - Dev
     - [Analytic Service](./dev/analytic/)
         - [Analytic Core](./dev/analytic/analytic.md)
-        - [Preprocess Core](./dev/analytic/correlation.md)
-        - [Correlation Core](./dev/analytic/preprocess.md)
+        - [Preprocess Core](./dev/analytic/preprocess.md)
+        - [Correlation Core](./dev/analytic/correlation.md)
     - [Visualization Service](./dev/visualization/)
         - [Data visualization Core](./dev/visualization/data.md)
         - [Analytic visualization Core](./dev/visualization/analytic.md)
-    - Data Collection Service
+    - [Data Collection Service](./dev/dataCollect/)
 - [Ops](./ops/ops.md)

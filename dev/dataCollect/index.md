@@ -3,7 +3,7 @@ layout: default
 title: Data Collection Service
 ---
 
-# Data Visualize Core
+# Data Collection Core
 <div class="alert alert-dark" role="alert">
     <a href="../">Document</a>
      > 
