@@ -182,9 +182,9 @@ title: Analytic Core
 ### 演算法實作
 要實作演算法，請繼承該 projectType 的 base class
 
-以下將先說明 [parameter object](#Parameter-object), [input group object](#Input-group-object), [output object](#Output-object) 的結構
+以下將先說明 [parameter object](#parameter-object), [input group object](#input-group-object), [output object](#output-object) 的結構
 
-再分別解釋 [regression](#Regression-algorithm), [classification](#Classification-algorithm), [clustering](#Clustering-algorithm), [abnormal detection](#Abnormal-detection-algorithm) 的實作方法
+再分別解釋 [regression](#regression-algorithm), [classification](#classification-algorithm), [clustering](#clustering-algorithm), [abnormal detection](#abnormal-detection-algorithm) 的實作方法
 
 #### Parameter object
 在程式中，使用者輸入的參數值皆以 dictionary 方式存在 `self.param` 中
