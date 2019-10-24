@@ -1,3 +1,9 @@
+---
+layout: default
+title: InCore Document
+breadcrumb: documnet
+---
+
 This is a DevOps document of InCore, a data analytics platform based on SOA and RESTful API.
 The platform was born in ICAN Lab, ESOE, NTU.
 Click links below to navigate to each chaper.

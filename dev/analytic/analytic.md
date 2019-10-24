@@ -1,3 +1,9 @@
+---
+layout: default
+title: Analytic Core
+breadcrumb: /dev/analytic service/analytic
+---
+
 # Analytic Core
 ## Implement algorithm
 要實作一個演算法，有兩個步驟：參數定義 以及 演算法實作
