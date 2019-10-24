@@ -19,8 +19,6 @@ color:#BDBDBD
 }
 </style>
 
-
-InCore Ops Document
 ===
 ## About Document
 <font class='apiok'>Tested API</font>

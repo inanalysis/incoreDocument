@@ -1,14 +1,27 @@
 ---
 layout: default
 title: Analytic Core
-breadcrumb: /dev/analytic service/analytic
 ---
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 # Analytic Core
+
+<div class="alert alert-dark" role="alert">
+    <a href="../../../">Document</a>
+     > 
+    <a href="../../">Dev</a>
+     > 
+    <a href="../">Ananlytic Service</a>
+     > 
+    Analytic Core
+</div>
+
+
 ## Implement algorithm
-要實作一個演算法，有兩個步驟：參數定義 以及 演算法實作
-### 參數定義 Parameter defining
-演算法的參數定義請存為 算法名.json
+要實作一個演算法，有兩個步驟：[演算法定義](#演算法定義) 以及 [演算法實作](#演算法實作)
+### 演算法定義
+演算法的定義請存為 算法名.json
 該json中必須定義以下屬性
 - **dataType**
 `Enum("num","cv","nlp")`
@@ -25,7 +38,7 @@ breadcrumb: /dev/analytic service/analytic
 - **lib** 
     所使用的函式庫，目前支援 sklean 以及 keras
     `Enum("sklearn","keras")`
-- **param oject**
+- **Parameter oject**
     參數物件有以下這些屬性
     - **name**: "參數名稱"
     - **description**: "此參數的描述"
@@ -45,8 +58,8 @@ breadcrumb: /dev/analytic service/analytic
         |lowerBound|參數的下界|int, float|0|
         |list|選項參數的候選選項|enum|["op1","op2"]|
     
-- **input group object**
-    此參數說明了此演算法應該要有那些輸入。
+- **Input group object**
+    此參數說明了此演算法應該要有那些輸入組。
     一個算法可以有多個input group，每個input group 允許多個feature，同個 input group 的型態應該要一致。
     - **name**
     - **description**
@@ -56,7 +69,7 @@ breadcrumb: /dev/analytic service/analytic
     - **amount**
         此輸入可否接受多個 feature
         `Enum("single", "multiple")`
-- **output object**
+- **Output object**
     此參數說明了算法的輸出。
     一個算法可以有多個output，每個 output 僅能有一個 feature。
     對於沒有輸出的 Unsupervised learning，此物件為一個空list。
@@ -68,7 +81,7 @@ breadcrumb: /dev/analytic service/analytic
 - <details>
     <summary>Example</summary>
 
-    ```
+    ```json
     {
         "dataType": "num",
         "projectType":"regression",
@@ -84,7 +97,7 @@ breadcrumb: /dev/analytic service/analytic
                 "default":20
             },
             {
-                "name": "param2 Name",
+                "name": "param2Name",
                 "description": "param2 Description",
                 "type": "float",
                 "upperBound": 30.5,
@@ -167,10 +180,38 @@ breadcrumb: /dev/analytic service/analytic
     
 ---
 
-### 演算法實作 Algorithm Implementing
+### 演算法實作
 要實作演算法，請繼承該 projectType 的 base class
-以下將先講解parameter object, input group object, output object 的結構
-再分別解釋regression, classification, clustering, abnormal 的實作方法
+
+以下將先說明 [parameter object](#Parameter-object), [input group object](#Input-group-object), [output object](#Output-object) 的結構
+
+再分別解釋 [regression](#Regression-algorithm), [classification](#Classification-algorithm), [clustering](#Clustering-algorithm), [abnormal detection](#Abnormal-detection-algorithm) 的實作方法
+
 #### Parameter object
+在程式中，使用者輸入的參數值皆以 dictionary 方式存在 `self.param` 中
+
+例如，如果在參數定義中，有一個 parameter object 為
+```json
+{
+    "name": "param2",
+    "description": "param2 Description",
+    "type": "float",
+    "upperBound": 30.5,
+    "lowerBound": 0,
+    "default":23.2
+}
+```
+在程式中，此參數的輸入值會存於 `self.param['param2']`
+
 #### Input group object
+在程式中，使用指定的
 #### Output object
+
+#### Regression algorithm
+
+#### Classification algorithm
+
+#### Clustering algorithm
+
+#### Abnormal detection algorithm
+
