@@ -15,11 +15,11 @@ title: Analytic Core
 </div>
 
 ---
+本章節講解如何實作數據分析演算法模組
 
-
-## Implement algorithm
 要實作一個演算法，有兩個步驟：[演算法定義](#演算法定義) 以及 [演算法實作](#演算法實作)
-### 演算法定義
+
+## 演算法定義
 演算法的定義請存為 算法名.json
 該json中必須定義以下屬性
 - **dataType**
@@ -179,14 +179,14 @@ title: Analytic Core
     
 ---
 
-### 演算法實作
+## 演算法實作
 要實作演算法，請繼承該 projectType 的 base class
 
 以下將先說明 [parameter object](#parameter-object), [input group object](#input-group-object), [output object](#output-object) 的結構
 
 再分別解釋 [regression](#regression-algorithm), [classification](#classification-algorithm), [clustering](#clustering-algorithm), [abnormal detection](#abnormal-detection-algorithm) 的實作方法
 
-#### Parameter object
+### Parameter object
 在程式中，使用者輸入的參數值皆以 dictionary 方式存在 `self.param` 中
 
 例如，如果在參數定義中，有一個 parameter object 為
@@ -202,15 +202,115 @@ title: Analytic Core
 ```
 在程式中，此參數的輸入值會存於 `self.param['param2']`
 
-#### Input group object
-在程式中，使用指定的
-#### Output object
+### Input group object
 
-#### Regression algorithm
+在程式中，使用者對於每個輸入組所指定的數據會以 dictionary 方式存在 `self.inputData` 中
 
-#### Classification algorithm
+每個輸入組的結構皆為
 
-#### Clustering algorithm
+```python
+numpy.array(
+    [
+        [col1-row1,col2-row1,....,colN-row1],
+        ....,
+        [col1-rowM,col2-rowM,...,colN-rowM]
+    ]
+)
+```
 
-#### Abnormal detection algorithm
+例如，一個如下的 csv
+
+|a|b|c|
+|---|---|---|
+|1|2|3|
+|4|5|6|
+|7|8|9|
+|10|11|12|
+
+將 a, b, c 三個 column 皆讀入一個名為 input1 的輸入組，則 `self.inputData['intput1']` 將為
+
+```python
+numpy.array(
+    [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9],
+        [10,11,12]
+    ]
+)
+```
+
+若該輸入組型態為 *classifiable*，則系統會自動將其轉換為 one-hot encoding 型式，並將對應關係存為 `self.c2d` 及 `self.d2c`
+
+例如，一個如下的 csv
+
+|a|b|c|
+|---|---|---|
+|cat|apple|red|
+|dog|banana|blue|
+|dog|orange|black|
+|cat|banana|green|
+
+將 a, b, c 三個 column 皆讀入一個名為 input2 的輸入組，系統會隨機為每個column產生類別對應如下面型式
+
+```python
+self.c2d = {
+                "a":{
+                    "cat":0,
+                    "dog":1
+                },
+                "b":{
+                    "apple": 0,
+                    "banana": 1,
+                    "orange":2
+                },
+                "c":{
+                    "red":0,
+                    "blue":1,
+                    "black":2,
+                    "green":3
+                }
+           }
+
+self.d2c = {
+                "a":{
+                    "0":"cat",
+                    "1":"dog"
+                },
+                "b":{
+                    "0": "apple",
+                    "1": "banana",
+                    "2":"orange"
+                },
+                "c":{
+                    "0":"red",
+                    "1":"blue",
+                    "2":"black",
+                    "3":"green"
+                }
+           }
+```
+
+並且 `self.inputData['input2']` 將為
+
+```python
+numpy.array(
+    [
+        [ [1,0], [1,0,0], [1,0,0,0] ],
+        [ [0,1], [0,1,0], [0,1,0,0] ],
+        [ [0,1], [0,0,1], [0,0,1,0] ],
+        [ [1,0], [0,1,0], [0,0,0,1] ]
+    ]
+)
+```
+
+### Output object
+
+### Regression algorithm
+
+### Classification algorithm
+
+### Clustering algorithm
+
+### Abnormal detection algorithm
 
