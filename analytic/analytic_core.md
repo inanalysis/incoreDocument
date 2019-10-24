@@ -1,6 +1,4 @@
-InCore Dev Document
-===
-# Analytic Service
+# Analytic Core
 ## Implement algorithm
 要實作一個演算法，有兩個步驟：參數定義 以及 演算法實作
 ### 參數定義 Parameter defining
@@ -11,11 +9,11 @@ InCore Dev Document
 - **projectType** `Enum("classification","regression","abnormal","clustering")`
   每個 dataType 所支持的 projectType
 
-    |   |regression|classification|abnormal|clustering|
-    |:--------------:|:------------:|:-------------:|:--------:|:---------:|
-    |num|✔|✔|✔|✔|
-    |cv|✔|✔|✖|✖|
-    |nlp|✔|✔|✖|✖|
+  |   |regression|classification|abnormal|clustering|
+  |:--------------:|:------------:|:-------------:|:--------:|:---------:|
+  |num|✔|✔|✔|✔|
+  |cv|✔|✔|✖|✖|
+  |nlp|✔|✔|✖|✖|
 - **algoName** 
     實作演算法的名稱 e.g. *R08525000_kmean*。這個名稱應該與檔名一致
 - **lib** 
@@ -40,7 +38,7 @@ InCore Dev Document
         |upperBound|參數的上界|int, float|20|
         |lowerBound|參數的下界|int, float|0|
         |list|選項參數的候選選項|enum|["op1","op2"]|
-        
+    
 - **input group object**
     此參數說明了此演算法應該要有那些輸入。
     一個算法可以有多個input group，每個input group 允許多個feature，同個 input group 的型態應該要一致。
@@ -161,8 +159,8 @@ InCore Dev Document
     ```
     </details>
     
- --- 
- 
+---
+
 ### 演算法實作 Algorithm Implementing
 要實作演算法，請繼承該 projectType 的 base class
 以下將先講解parameter object, input group object, output object 的結構
