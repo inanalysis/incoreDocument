@@ -15,5 +15,5 @@ title: Analytic Service
 ---
 
 - [Analytic Core](./analytic.md)
-- [Preprocess Core](./correlation.md)
-- [Correlation Core](./preprocess.md)
+- [Preprocess Core](./preprocess.md)
+- [Correlation Core](./correlation.md)
