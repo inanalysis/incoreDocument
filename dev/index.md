@@ -5,18 +5,18 @@ title: Dev
 
 # Dev Document
 <div class="alert alert-dark" role="alert">
-    <a href="./">Document</a>
+    <a href="../index.md">Document</a>
      > 
     Dev
 </div>
 
 ---
 
-- [Analytic Service](./dev/analytic/)
-    - [Analytic Core](./dev/analytic/analytic.md)
-    - [Preprocess Core](./dev/analytic/correlation.md)
-    - [Correlation Core](./dev/analytic/preprocess.md)
-- [Visualization Service](./dev/visualization/)
-    - [Data visualization Core](./dev/visualization/data.md)
-    - [Analytic visualization Core](./dev/visualization/analytic.md)
+- [Analytic Service](./analytic/)
+    - [Analytic Core](./analytic/analytic.md)
+    - [Preprocess Core](./analytic/preprocess.md)
+    - [Correlation Core](./analytic/correlation.md)
+- [Visualization Service](./visualization/)
+    - [Data visualization Core](./visualization/data.md)
+    - [Analytic visualization Core](./visualization/analytic.md)
 - Data Collection Service

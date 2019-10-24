@@ -27,7 +27,7 @@ color:#BDBDBD
 
 # Ops Document
 <div class="alert alert-dark" role="alert">
-    <a href="./">Document</a>
+    <a href="../index.md">Document</a>
      > 
     Ops
 </div>

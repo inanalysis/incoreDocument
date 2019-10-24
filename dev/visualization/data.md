@@ -5,11 +5,11 @@ title: DataViz Core
 
 # Data Visualize Core
 <div class="alert alert-dark" role="alert">
-    <a href="../../">Document</a>
+    <a href="../../index.md">Document</a>
      > 
-    <a href="../">Dev</a>
+    <a href="../index.md">Dev</a>
      > 
-    <a href="./">Visualize Service</a>
+    <a href="./index.md">Visualize Service</a>
      > 
     Data Visualize Core
 </div>

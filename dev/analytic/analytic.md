@@ -5,11 +5,11 @@ title: Analytic Core
 
 # Analytic Core
 <div class="alert alert-dark" role="alert">
-    <a href="../../">Document</a>
+    <a href="../../index.md">Document</a>
      > 
-    <a href="../">Dev</a>
+    <a href="../index.md">Dev</a>
      > 
-    <a href="./">Ananlytic Service</a>
+    <a href="./inde.md">Ananlytic Service</a>
      > 
     Analytic Core
 </div>

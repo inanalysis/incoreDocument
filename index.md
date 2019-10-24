@@ -3,11 +3,7 @@ layout: default
 title: Document
 ---
 
-<div class="alert alert-dark" role="alert">
-    Document
-</div>
-
----
+# InCore Document
 
 This is a DevOps document of InCore, a data analytics platform based on SOA and RESTful API.
 
