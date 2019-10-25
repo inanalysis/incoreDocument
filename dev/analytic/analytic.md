@@ -187,7 +187,9 @@ title: Analytic Core
 
 以下將先說明 [parameter object](#parameter-object), [input group object](#input-group-object), [output object](#output-object) 的結構
 
-再分別解釋 [regression](#regression-algorithm), [classification](#classification-algorithm), [clustering](#clustering-algorithm), [abnormal detection](#abnormal-detection-algorithm) 的實作方法
+並說明[模組架構以及需要實作的方法](#模組架構及實作方法)
+
+再分別解釋 [regression](#regression-algorithm), [classification](#classification-algorithm), [clustering](#clustering-algorithm), [abnormal detection](#abnormal-detection-algorithm) 實作時要注意的事項
 
 ### Parameter object
 在程式中，使用者輸入的參數值皆以 dictionary 方式存在 `self.param` 中
@@ -243,7 +245,7 @@ numpy.array(
 )
 ```
 <br>
-若該輸入組型態為 *classifiable*，則系統會自動將其轉換為 one-hot encoding 型式，並將對應關係存為 `self.c2d` 及 `self.d2c`
+若該輸入組型態為 *classifiable*，則系統會自動將其轉換為 one-hot encoding 型式，並將對應關係存至 `self.c2d` 及 `self.d2c`
 
 例如，一個如下的 csv
 
@@ -294,20 +296,63 @@ self.d2c = {
            }
 ```
 
-並且 `self.inputData['input2']` 將為
+根據輸入組以及以上對應關係，`self.inputData['input2']` 將為
 
 ```python
 numpy.array(
     [
-        [ [1,0,0,0], [1,0], [1,0,0] ],
-        [ [0,1,0,0], [0,1], [0,1,0] ],
-        [ [0,0,1,0], [0,1], [0,0,1] ],
-        [ [0,0,0,1], [1,0], [0,1,0] ]
+        [ numpy.array([1,0,0,0]), numpy.array([1,0]), numpy.array([1,0,0]) ],
+        [ numpy.array([0,1,0,0]), numpy.array([0,1]), numpy.array([0,1,0]) ],
+        [ numpy.array([0,0,1,0]), numpy.array([0,1]), numpy.array([0,0,1]) ],
+        [ numpy.array([0,0,0,1]), numpy.array([1,0]), numpy.array([0,1,0]) ]
     ]
 )
 ```
 
 ### Output object
+
+在程式中，使用者對於每個輸出所指定的數據會以 dictionary 方式存在 `self.outputData` 中
+
+每個輸出的結構皆為
+
+```python
+numpy.array(
+    [col1-row1,col2-row1,....,colN-row1]
+)
+```
+<br>
+若該輸出型態為 *classifiable*，則與輸入組一樣，系統會自動將其轉換為 one-hot encoding 型式，並將對應關係存至 `self.c2d` 及 `self.d2c`
+
+此時該輸出會像
+```python
+numpy.array(
+    [[0,1,0],[0,0,1],....,[1,0,0]]
+)
+```
+
+### 模組架構及實作方法
+
+所有的演算法模組皆繼承自各自 project type 的 base class (`regressionBase`,`classificationBase`,`clusteringBase`,`abnormalBase`)
+
+一定要實作兩個function: `trainAlgo` 以及 `predictAlgo`。`trainAlgo` 定義了模型的訓練方法，`predictAlgo` 則定義了在預測時的動作。
+
+模組也允許視覺化自己的演算法 (非必要)，請將其方法實做在 `algoVisualize` function
+
+輸出入資料來自 `self.inputData` 以及 `self.outputData`，如前所示；模型參數來自 `self.param`；模型請存放至/取用自 `self.model` 變數。
+
+#### trainAlgo
+訓練時，請利用 `self.inputData`, `self.outputData` 以及 `self.param` 定義以及訓練模型，並將模型 instance 存至 `self.model`。
+
+
+#### predictAlgo
+預測時，請利用 `self.model` 以及 `self.inputData` ，將預測出的資料以與 `self.outputData` 相同的架構存放至 `self.result`。
+若想自行定義模型的結果表示 (如: loss, accuracy 等等)，請將結果字串存放至 `self.txtRes`。
+
+#### algoVisualize
+模組允許的 figure 類型為: 
+1. Image as 3D np.array
+2. Bokeh component {"div":"the div","script":"the script"}
+請使用 bokeh 畫圖
 
 ### Regression algorithm
 
